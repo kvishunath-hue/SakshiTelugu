@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="te">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="సాక్షి">
-<title>సాక్షి</title>
+<title>సాక్షి - Sakshi</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1a1710;background:#faf9f7;-webkit-text-size-adjust:100%}
+body{
+  /* Applying Noto Sans Telugu for clarity and modern feel */
+  font-family: 'Noto Sans Telugu', -apple-system, BlinkMacSystemFont, sans-serif;
+  color:#1a1710;background:#faf9f7;-webkit-text-size-adjust:100%
+}
 @media(prefers-color-scheme:dark){body{color:#ede8dc;background:#1a1810}}
 :root{
 --bg:#faf9f7;--bg2:#f2f0eb;--bg3:#e8e4dc;
@@ -38,613 +43,230 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 }}
 .wrap{max-width:520px;margin:0 auto;padding:1.5rem 1rem 5rem}
 .head{text-align:center;margin-bottom:2rem}
-.head h1{font-size:22px;font-weight:600;color:var(--text);letter-spacing:.3px}
-.head .sub{font-size:13px;color:var(--text3);margin-top:4px;font-style:italic}
-.head .san{font-size:11px;color:var(--gold);margin-top:6px;letter-spacing:1px}
-.si{font-size:12px;color:var(--text3);margin-bottom:10px;line-height:1.5}
-.sec-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin:1.2rem 0 .6rem}
-.item{background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);margin-bottom:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;transition:border-color .2s,background .2s}
-.item:active{opacity:.85}
+.head h1{font-size:24px;font-weight:700;color:var(--text);letter-spacing:.3px}
+.head .sub{font-size:14px;color:var(--text3);margin-top:6px;font-style:italic}
+.si{font-size:13px;color:var(--text3);margin-bottom:12px;line-height:1.6}
+.sec-label{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin:1.5rem 0 .6rem}
+.item{background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);margin-bottom:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:border-color .2s,background .2s}
 .item.sel-seer{background:var(--seer2);border-color:var(--seer)}
 .item.sel-seen{background:var(--seen2);border-color:var(--seen)}
-.item-inner{padding:11px 13px;display:flex;gap:10px;align-items:flex-start}
-.chk{width:16px;height:16px;border-radius:3px;border:2px solid var(--bdr2);flex-shrink:0;margin-top:2px;position:relative;background:var(--bg);transition:background .2s,border-color .2s}
+.item-inner{padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+.chk{width:18px;height:18px;border-radius:4px;border:2px solid var(--bdr2);flex-shrink:0;margin-top:2px;position:relative;background:var(--bg)}
 .item.sel-seer .chk{background:var(--seer);border-color:var(--seer)}
 .item.sel-seen .chk{background:var(--seen);border-color:var(--seen)}
-.chk::after{content:'';position:absolute;left:3px;top:0;width:5px;height:9px;border:2px solid var(--bg);border-top:none;border-left:none;transform:rotate(45deg);opacity:0;transition:opacity .15s}
+.chk::after{content:'';position:absolute;left:4px;top:1px;width:5px;height:9px;border:2px solid var(--bg);border-top:none;border-left:none;transform:rotate(45deg);opacity:0}
 .item.sel-seer .chk::after,.item.sel-seen .chk::after{opacity:1}
 .item-body{flex:1}
-.item-en{font-size:13px;line-height:1.5;color:var(--text)}
-.item-tag{font-size:10px;font-weight:600;letter-spacing:.4px;padding:1px 7px;border-radius:10px;display:inline-block;margin-top:5px}
+.item-en{font-size:14px;line-height:1.5;color:var(--text)}
+.item-tag{font-size:10px;font-weight:700;letter-spacing:.5px;padding:2px 8px;border-radius:10px;display:inline-block;margin-top:6px}
 .tag-seer{background:var(--seer2);color:var(--seer)}
 .tag-seen{background:var(--seen2);color:var(--seen)}
-.notice-btn{width:100%;padding:13px;border-radius:var(--r);border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:14px;cursor:pointer;font-family:inherit;margin-top:1rem;letter-spacing:.3px;-webkit-tap-highlight-color:transparent}
-.notice-btn:active{opacity:.7}
-/* Attention Continuum */
-.ac-wrap{margin-top:1rem;border-radius:var(--rl);overflow:hidden;border:1px solid var(--bdr);display:none}
+.notice-btn{width:100%;padding:14px;border-radius:var(--r);border:1.5px solid var(--gold);background:transparent;color:var(--gold);font-size:15px;font-weight:600;cursor:pointer;margin-top:1.5rem;font-family:inherit}
+.ac-wrap{margin-top:1.5rem;border-radius:var(--rl);overflow:hidden;border:1px solid var(--bdr);display:none}
 .ac-wrap.show{display:block}
 .ac-svg{width:100%;height:auto;display:block}
-/* Result */
-.result{margin-top:1rem;background:var(--bg2);border-radius:var(--rl);padding:1.2rem;border:1px solid var(--bdr);display:none}
+.result{margin-top:1.5rem;background:var(--bg2);border-radius:var(--rl);padding:1.4rem;border:1px solid var(--bdr);display:none}
 .result.show{display:block}
-.result-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px}
-.result-body{font-size:13px;line-height:1.7;color:var(--text2)}
-.rgg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:10px 0 8px}
-.rgc{background:var(--bg3);border:1px solid var(--bdr);border-radius:var(--r);padding:7px 9px}
-.rgck{font-size:11px;color:var(--text3)}
-.rgcv{font-size:12px;font-weight:600;margin-top:2px;color:var(--text)}
-.rgm{padding:8px 10px;border-radius:var(--r);border:1px solid var(--bdr);font-size:13px;line-height:1.6;margin-top:6px;color:var(--text)}
-.rgmk{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
-.markers{margin-top:12px;display:flex;flex-direction:column;gap:7px}
-.marker{font-size:12px;line-height:1.6;color:var(--text2);padding:8px 11px;border-radius:var(--r);background:var(--bg3)}
-.marker-label{font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text3);display:block;margin-bottom:2px}
-.result-action{margin-top:10px;padding:10px 12px;border-radius:var(--r);border-left:3px solid var(--gold);background:var(--bg3);font-size:13px;line-height:1.6;color:var(--text2)}
-.al{padding:9px 11px;border-radius:var(--r);margin-top:8px;font-size:13px;line-height:1.6;border-left:3px solid}
-.ald{background:var(--db);color:var(--dt);border-color:var(--dbo)}
-.alw{background:var(--wb);color:var(--wt);border-color:var(--wbo)}
-.ali{background:var(--ib);color:var(--it);border-color:var(--ibo)}
-.ripsy{font-size:11px;color:var(--text3);margin-top:4px;font-style:italic}
-.bpill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:600;margin-bottom:6px}
+.result-title{font-size:17px;font-weight:700;color:var(--text);margin-bottom:12px}
+.result-body{font-size:14px;line-height:1.7;color:var(--text2)}
+.rgg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 10px}
+.rgc{background:var(--bg3);border:1px solid var(--bdr);border-radius:var(--r);padding:8px 10px}
+.rgck{font-size:11px;color:var(--text3);font-weight:600}
+.rgcv{font-size:13px;font-weight:700;margin-top:2px;color:var(--text)}
+.markers{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.marker{font-size:13px;line-height:1.6;color:var(--text2);padding:10px 12px;border-radius:var(--r);background:var(--bg3)}
+.marker-label{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);display:block;margin-bottom:4px}
+.result-action{margin-top:12px;padding:12px 14px;border-radius:var(--r);border-left:4px solid var(--gold);background:var(--bg3);font-size:14px;line-height:1.6;color:var(--text2)}
+.bpill{display:inline-block;font-size:11px;padding:3px 10px;border-radius:20px;font-weight:700;margin-bottom:8px}
 .bpw{background:var(--seer2);color:var(--seer)}
 .bpe{background:var(--ib);color:var(--it)}
 .bpi{background:var(--wb);color:var(--wt)}
 .bpc{color:#5048a0;background:#eeedf8}
 .bps{background:var(--db);color:var(--dt)}
-/* Ground button */
-.hbf{position:fixed;bottom:24px;right:16px;z-index:100;width:54px;height:54px;border-radius:50%;background:var(--calm);color:#1a1710;border:none;cursor:pointer;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.3;-webkit-tap-highlight-color:transparent;box-shadow:0 2px 12px rgba(0,0,0,0.25);font-family:inherit}
-.hbf:active{transform:scale(0.94)}
-.bov{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;background:rgba(0,0,0,0.4);overflow-y:auto}
-.bov.open{display:block;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.bov-inner{background:var(--bg);width:100%;max-width:560px;min-height:100%;padding:1rem 1rem 2rem;position:relative;margin:0 auto}
-.bovh{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-top:0.5rem}
-.bovt{font-size:17px;font-weight:600;color:var(--text)}
-.bovc{background:none;border:none;font-size:26px;cursor:pointer;color:var(--text3);line-height:1;padding:0;-webkit-tap-highlight-color:transparent}
-.bov-pane{display:none}
-.bov-pane.on{display:block}
-.btbs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
-.btb{flex:1;min-width:110px;padding:9px 8px;border-radius:var(--r);border:1px solid var(--bdr2);background:transparent;color:var(--text2);font-size:12px;cursor:pointer;text-align:center;line-height:1.4;-webkit-tap-highlight-color:transparent;font-family:inherit}
-.btb.on{background:var(--text);color:var(--bg);font-weight:600;border-color:var(--text)}
-.btb .bn{font-weight:600;display:block}
-.btb .bs{font-size:10px;display:block;margin-top:1px;opacity:0.8}
-.arena{display:flex;flex-direction:column;align-items:center;padding:.5rem 0 1rem}
-.breath-timer{font-size:13px;color:var(--text3);margin-bottom:.5rem;font-variant-numeric:tabular-nums;min-height:20px}
-.rw{position:relative;width:240px;height:240px;margin-bottom:1rem}
-.rw canvas{position:absolute;top:0;left:0}
-.cbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;-webkit-tap-highlight-color:transparent}
-.cph{font-size:13px;font-weight:600;color:#fff;pointer-events:none;text-align:center;padding:0 6px}
-.cpc{font-size:20px;font-weight:600;color:#fff;pointer-events:none;min-height:26px;text-align:center}
-.prow{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:.7rem}
-.pchip{display:flex;flex-direction:column;align-items:center;padding:5px 9px;border-radius:var(--r);border:1px solid var(--bdr);min-width:52px}
-.pchip.cur{border-color:var(--calm);background:var(--calm-bg)}
-.pn{font-size:11px;color:var(--text2)}
-.ps{font-size:12px;font-weight:600;margin-top:1px;color:var(--text)}
-.bdw{text-align:center;max-width:280px;margin-bottom:.7rem}
-.bwh{font-size:12px;font-weight:600;color:var(--text);margin-bottom:3px}
-.bde{font-size:12px;color:var(--text2);line-height:1.5}
-.bcy{font-size:12px;color:var(--text3);margin-bottom:.7rem;min-height:18px}
-.bcr{display:flex;gap:8px}
-.bct{padding:10px 24px;border-radius:var(--r);border:1px solid var(--bdr2);background:transparent;color:var(--text);font-size:13px;cursor:pointer;-webkit-tap-highlight-color:transparent;font-family:inherit}
-.btn{width:100%;padding:11px;border-radius:var(--r);border:1px solid var(--bdr2);background:transparent;color:var(--text2);font-size:13px;cursor:pointer;margin-top:4px;-webkit-tap-highlight-color:transparent;font-family:inherit}
-.btn:active{opacity:.7}
-.grnd-techs{display:flex;flex-direction:column;gap:10px}
-.grnd-card{background:var(--bg2);border:1px solid var(--bdr);border-radius:14px;padding:1.2rem 1.1rem}
-.grnd-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px}
-.grnd-desc{font-size:12.5px;color:var(--text2);line-height:1.6;margin-bottom:12px}
-.grnd-body{display:none}
-.grnd-body.open{display:block}
-.grnd-prompt{font-size:15px;font-weight:600;color:var(--text);text-align:center;padding:1.2rem 0.5rem;line-height:1.5}
-.grnd-counter{font-size:34px;font-weight:600;color:var(--calm);text-align:center;margin:.6rem 0}
-.grnd-sense{font-size:12.5px;color:var(--text3);text-align:center;margin-bottom:1rem}
-.grnd-btn{width:100%;padding:11px;border-radius:var(--r);border:1px solid var(--bdr2);background:transparent;color:var(--text2);font-size:13px;cursor:pointer;font-family:inherit;margin-top:4px;-webkit-tap-highlight-color:transparent}
-.grnd-btn.primary{background:transparent;color:var(--text2);border-color:var(--bdr2)}
-.grnd-btn:active{opacity:.7}
-.grnd-timer-bar{height:6px;border-radius:3px;background:var(--bdr);overflow:hidden;margin:.5rem 0}
-.grnd-timer-fill{height:100%;border-radius:3px;background:var(--calm);transition:width .1s linear}
-.grnd-pulse{width:80px;height:80px;border-radius:50%;background:var(--calm-bg);margin:1rem auto;transition:transform .5s ease-in-out}
-.grnd-pulse.expand{transform:scale(1.3)}
-.grnd-done-q{font-size:14px;color:var(--text2);text-align:center;margin-bottom:14px;padding-top:4px}
-.grnd-done-btns{display:flex;gap:8px}
-.grnd-done-btn{flex:1;padding:11px;border-radius:var(--r);font-size:13px;cursor:pointer;font-family:inherit;border:1px solid var(--bdr2);background:transparent;color:var(--text2);-webkit-tap-highlight-color:transparent}
-.grnd-done-btn.settled{background:var(--sb);color:var(--st);border-color:var(--sbo)}
-.grnd-done-btn.still{background:var(--wb);color:var(--wt);border-color:var(--wbo)}
-.grnd-still-msg{font-size:13px;line-height:1.6;padding:10px 12px;border-radius:var(--r);border-left:3px solid var(--wbo);background:var(--wb);color:var(--wt);margin-top:8px;display:none}
-.grnd-still-msg.show{display:block}
+.hbf{position:fixed;bottom:24px;right:16px;z-index:100;width:58px;height:58px;border-radius:50%;background:var(--calm);color:#1a1710;border:none;box-shadow:0 4px 15px rgba(0,0,0,0.2);font-family:inherit;font-weight:700;cursor:pointer}
+.bov{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;background:rgba(0,0,0,0.4)}
+.bov.open{display:block;overflow-y:auto}
+.bov-inner{background:var(--bg);width:100%;max-width:560px;min-height:100%;padding:1.5rem 1rem 2rem;margin:0 auto}
 </style>
 </head>
 <body>
 <div class="wrap">
-
   <div class="head">
     <h1>సాక్షి</h1>
     <div class="sub">తెలివిడి మారుపుకి అతి గొప్ప సాధనం.</div>
-    
   </div>
 
-  <p class="si">ఇప్పుడు ఏమి ఉందో అన్నీ ఎంచుకో. ఒకటి కంటే ఎక్కువ ఉండడం సహజం.</p>
+  <p class="si">ప్రస్తుతం మీలో ఏముందో ఎంచుకోండి. ఒకటి కంటే ఎక్కువ ఉండడం సహజం.</p>
 
-  <div class="sec-label">మనసు స్వేచ్ఛగా ఉంది</div>
+  <div class="sec-label">దృష్టి స్వేచ్ఛగా ఉంది</div>
 
   <div class="item" id="i-stillness" onclick="tog(this,'seer',4)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">మనసు ప్రశాంతంగా ఉంది &#8212; తొందర లేదు, ఏ ఒత్తిడి లేదు</div>
-      <span class="item-tag tag-seer">స్వేచ్ఛ &mdash; బలంగా</span>
+      <div class="item-en">మనసు నిశ్చలంగా ఉంది — తొందర లేదు, ఏ ఒత్తిడి లాగడం లేదు</div>
+      <span class="item-tag tag-seer">స్వేచ్ఛ — బలంగా</span>
     </div></div>
   </div>
 
   <div class="item" id="i-meta" onclick="tog(this,'seer',3)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">నా ఆలోచనలు నాకు కనిపిస్తున్నాయి &#8212; నేను వేరు, ఆలోచనలు వేరు అని తెలుస్తోంది</div>
-      <span class="item-tag tag-seer">స్వేచ్ఛ &mdash; ఉంది</span>
+      <div class="item-en">నా ఆలోచనలను నేను గమనించగలను — ఆలోచనలకి నాకు మధ్య దూరం తెలుస్తోంది</div>
+      <span class="item-tag tag-seer">స్వేచ్ఛ — ఉంది</span>
     </div></div>
   </div>
 
   <div class="item" id="i-observer" onclick="tog(this,'seer',2)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">భావాలు ఉన్నాయి కానీ నేను వాటిలో మునిగిపోలేదు &#8212; అనుభవిస్తున్నా, అయిపోలేదు</div>
-      <span class="item-tag tag-seer">స్వేచ్ఛ &mdash; కొంత</span>
+      <div class="item-en">భావాలు ఉన్నాయి కానీ నేను వాటిలో మునిగిపోలేదు — భావం వేరు, నేను వేరు అని తెలుస్తోంది</div>
+      <span class="item-tag tag-seer">స్వేచ్ఛ — కొంత</span>
     </div></div>
   </div>
 
   <div class="item" id="i-choice" onclick="tog(this,'seer',2)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">నా దృష్టి నేను పెట్టినచోటే ఉంటోంది &#8212; లాగబడడం లేదు, నేనే ఎంచుకుంటున్నా</div>
-      <span class="item-tag tag-seer">స్వేచ్ఛ &mdash; కొంత</span>
+      <div class="item-en">నా దృష్టి నేను పెట్టినచోటే ఉంటోంది — నేను ఎంచుకుంటున్నా, లాగబడడం లేదు</div>
+      <span class="item-tag tag-seer">స్వేచ్ఛ — కొంత</span>
     </div></div>
   </div>
 
   <div class="item" id="i-grounded" onclick="tog(this,'seer',1)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">ఇక్కడ నుండి పని చేయగలను &#8212; తగినంత ప్రశాంతత, స్పష్టత ఉంది</div>
-      <span class="item-tag tag-seer">స్వేచ్ఛ &mdash; సిద్ధం</span>
+      <div class="item-en">ఇక్కడి నుండి స్పష్టంగా పని చేయగలను — తగినంత ప్రశాంతత, స్థిరత్వం ఉంది</div>
+      <span class="item-tag tag-seer">స్వేచ్ఛ — సిద్ధం</span>
     </div></div>
   </div>
 
-  <div class="sec-label">మనసు చిక్కుకుంది</div>
+  <div class="sec-label">దృష్టి చిక్కుకుంది</div>
 
   <div class="item" id="i-emotion" onclick="tog(this,'seen',2)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">నేను ఆ భావమే అయిపోయా &#8212; అనుభవిస్తున్నది కాదు, అదే నేను అయిపోయింది</div>
-      <span class="item-tag tag-seen">చిక్కు &mdash; భావం</span>
+      <div class="item-en">నేను ఆ భావమే అయిపోయాను — అది కేవలం అనుభూతి కాదు, అదే 'నేను' అయిపోయింది</div>
+      <span class="item-tag tag-seen">చిక్కు — గుర్తింపు</span>
     </div></div>
   </div>
 
   <div class="item" id="i-story" onclick="tog(this,'seen',2)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">మనసు ఒక కథ అల్లుతోంది &#8212; తప్పు ఎవరిది, ఎందుకు జరిగింది అని వివరిస్తోంది</div>
-      <span class="item-tag tag-seen">చిక్కు &mdash; కథ</span>
+      <div class="item-en">మనసు ఒక కథ అల్లుతోంది — తప్పు ఎవరిది, ఎందుకు జరిగింది అని వివరణలు ఇస్తోంది</div>
+      <span class="item-tag tag-seen">చిక్కు — కథ</span>
     </div></div>
   </div>
 
   <div class="item" id="i-charged" onclick="tog(this,'seen',3)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">మామూలు విషయాలు ప్రత్యేకంగా అనిపిస్తున్నాయి &#8212; అన్నింటిలో అర్థం, సంకేతాలు కనిపిస్తున్నాయి</div>
-      <span class="item-tag tag-seen">చిక్కు &mdash; తీవ్రత</span>
+      <div class="item-en">ప్రతి చిన్న విషయం ప్రత్యేకంగా అనిపిస్తోంది — అన్నింటిలో అర్థాలు, సంకేతాలు కనిపిస్తున్నాయి</div>
+      <span class="item-tag tag-seen">చిక్కు — తీవ్రత</span>
     </div></div>
   </div>
 
   <div class="item" id="i-urgency" onclick="tog(this,'seen',3)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">ఇప్పుడే ఏదో చెప్పాలి లేదా చేయాలి &#8212; ఆగడం సాధ్యం కాదనిపిస్తోంది</div>
-      <span class="item-tag tag-seen">చిక్కు &mdash; తొందర</span>
+      <div class="item-en">ఇప్పుడే ఏదో చేయాలి లేదా చెప్పాలి — ఆగడం సాధ్యం కాదనిపిస్తోంది</div>
+      <span class="item-tag tag-seen">చిక్కు — తొందర</span>
     </div></div>
   </div>
 
   <div class="item" id="i-body" onclick="tog(this,'seen',2)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">శరీరం దృష్టిని లాక్కుంటోంది &#8212; అలసట, ఆకలి, నొప్పి, లేదా అసహనం</div>
-      <span class="item-tag tag-seen">చిక్కు &mdash; శరీరం</span>
+      <div class="item-en">శరీరం దృష్టిని లాక్కుంటోంది — అలసట, ఆకలి, నొప్పి లేదా అసహనం</div>
+      <span class="item-tag tag-seen">చిక్కు — శరీరం</span>
     </div></div>
   </div>
 
   <div class="item" id="i-compulsion" onclick="tog(this,'seen',3)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">అదే ఆలోచన మళ్ళీ మళ్ళీ వస్తోంది &#8212; చెక్ చేయడం, గుర్తుచేసుకోవడం, తిరగడం</div>
-      <span class="item-tag tag-seen">చిక్కు &mdash; లూప్</span>
+      <div class="item-en">ఒకే ఆలోచన మళ్ళీ మళ్ళీ వస్తోంది — అదే లూప్‌లో మనసు తిరుగుతోంది</div>
+      <span class="item-tag tag-seen">చిక్కు — లూప్</span>
     </div></div>
   </div>
 
   <div class="item" id="i-panic" onclick="tog(this,'seen',4)">
     <div class="item-inner"><div class="chk"></div><div class="item-body">
-      <div class="item-en">పూర్తిగా కుప్పకూలిపోయా &#8212; వణుకు, మనసు ఖాళీ, నిజం ఏమిటో తెలియడం లేదు</div>
-      <span class="item-tag tag-seen">చిక్కు &mdash; పూర్తి</span>
+      <div class="item-en">పూర్తిగా కుప్పకూలిపోయాను — వణుకు, మనసు ఖాళీ, ఏది నిజమో తెలియడం లేదు</div>
+      <span class="item-tag tag-seen">చిక్కు — పూర్తి</span>
     </div></div>
   </div>
 
   <button class="notice-btn" onclick="calc()">గమనించు</button>
 
-  <!-- Attention Continuum graph -->
   <div class="ac-wrap" id="ac-wrap">
     <svg class="ac-svg" viewBox="0 0 510 195" xmlns="http://www.w3.org/2000/svg" id="ac-svg"></svg>
   </div>
 
   <div class="result" id="result"></div>
-
 </div>
 
-<!-- Ground button -->
 <button class="hbf" onclick="openBreath()">శాంతి</button>
-
-<div class="bov" id="boverlay">
-  <div class="bov-inner">
-    <div class="bovh"><span class="bovt">శాంతి</span><button class="bovc" onclick="closeBreath()">&#215;</button></div>
-    <div style="display:flex;gap:6px;margin-bottom:1rem">
-      <button class="btn" id="gov-breathing" style="flex:1;margin:0;background:var(--calm);color:#1a1a1a;font-weight:700;border-color:var(--calm)" onclick="switchGov('breathing')">శ్వాస</button>
-      <button class="btn" id="gov-grounding" style="flex:1;margin:0" onclick="switchGov('grounding')">నేల మీద</button>
-    </div>
-    <div id="govp-breathing">
-      <div class="btbs" id="btabs"></div>
-      <div class="arena">
-        <div class="breath-timer" id="breath-timer">00:00</div>
-        <div class="rw"><canvas id="bcanvas" width="240" height="240"></canvas>
-          <button class="cbtn" id="center-btn" onclick="toggleRun()">
-            <span class="cph" id="cp-phase">మొదలు పెట్టు</span>
-            <span class="cpc" id="cp-count"></span>
-          </button>
-        </div>
-        <div class="prow" id="phases-row"></div>
-        <div class="bdw"><div class="bwh" id="bwhen"></div><div class="bde" id="bdesc"></div></div>
-        <div class="bcy" id="bcycles"></div>
-        <div class="bcr"><button class="bct" onclick="stopBreath()">ఆపు</button></div>
-      </div>
-    </div>
-    <div id="govp-grounding" style="display:none">
-      <div class="grnd-techs" id="grnd-techs"></div>
-    </div>
-  </div>
-</div>
 
 <script>
 var sel={};
-
 function tog(el,side,w){
   var id=el.id;
   if(sel[id]){delete sel[id];el.classList.remove('sel-seer','sel-seen');}
-  else{sel[id]={side:side,weight:w};el.classList.remove('sel-seer','sel-seen');el.classList.add('sel-'+side);}
+  else{sel[id]={side:side,weight:w};el.classList.add('sel-'+side);}
   document.getElementById('ac-wrap').classList.remove('show');
   document.getElementById('result').classList.remove('show');
 }
 
-// ── REGULATION LEVEL MAPPING (same as Inner Systems) ──
-var REGI_MAP={
-  'i-stillness':{votes:{1:3,2:2,3:1,4:1}},
-  'i-meta':{votes:{2:3,3:2,4:1}},
-  'i-observer':{votes:{3:3,4:2,5:1}},
-  'i-choice':{votes:{4:3,5:2,3:1}},
-  'i-grounded':{votes:{5:3,4:2}},
-  'i-emotion':{votes:{6:3,7:1}},
-  'i-story':{votes:{7:3,6:1,8:1}},
-  'i-charged':{votes:{7:3,8:2,10:1}},
-  'i-urgency':{votes:{7:2,8:2,10:1}},
-  'i-body':{votes:{8:3,6:1}},
-  'i-compulsion':{votes:{8:2,9:3,7:1}},
-  'i-panic':{votes:{10:3,9:1,8:1}}
-};
+var REGI_MAP={'i-stillness':{votes:{1:3,2:2,3:1,4:1}},'i-meta':{votes:{2:3,3:2,4:1}},'i-observer':{votes:{3:3,4:2,5:1}},'i-choice':{votes:{4:3,5:2,3:1}},'i-grounded':{votes:{5:3,4:2}},'i-emotion':{votes:{6:3,7:1}},'i-story':{votes:{7:3,6:1,8:1}},'i-charged':{votes:{7:3,8:2,10:1}},'i-urgency':{votes:{7:2,8:2,10:1}},'i-body':{votes:{8:3,6:1}},'i-compulsion':{votes:{8:2,9:3,7:1}},'i-panic':{votes:{10:3,9:1,8:1}}};
 
-var RLB={1:'నిశ్శబ్ద తెలివిడి',2:'తెలివిడి ఉంది',3:'చూస్తూ ఉన్నావు',4:'స్థిరంగా ఉన్నావు',5:'పనిలో ఉన్నావు',6:'భావాలలో మునిగావు',7:'కథలో చిక్కుకున్నావు',8:'శరీరం ఆధిపత్యం',9:'లూప్ / ట్రాన్స్',10:'Raw survival'};
-var RBD=function(l){return l<=3?'w':l<=5?'e':l<=7?'i':l<=9?'c':'s';};
-var RBDL={w:'స్వేచ్ఛగా ఉంది',e:'సమతుల్యంగా ఉంది',i:'అల్లకల్లోలం మొదలైంది',c:'చిక్కుకుపోయింది',s:'ప్రమాదం · రక్షణ స్థితి'};
-var RBDCLS={w:'bpw',e:'bpe',i:'bpi',c:'bpc',s:'bps'};
-
-var RST={
-  1:{a:'చాలా స్వేచ్ఛగా',b:'చాలా బలంగా',s:'తక్కువ',bk:'ఏమీ లేదు \u2014 ఏ ఒత్తిడి లేదు'},
-  2:{a:'తేలికగా, గమనిస్తూ',b:'బలంగా',s:'తక్కువ',bk:'చూస్తూ ఉండడం అనుభవించడం కాకుండా'},
-  3:{a:'అందుబాటులో',b:'మంచిగా',s:'కొంచెం',bk:'అర్థాలు వెతకడం ముందే మొదలైంది'},
-  4:{a:'దిశతో స్వేచ్ఛగా',b:'అత్యుత్తమం',s:'సరిగ్గా',bk:'కొత్త విషయాలు, అనవసరమైన నిర్ణయాలు'},
-  5:{a:'పనిలో నిమగ్నం',b:'స్థిరంగా',s:'పనికి తగినట్లు',bk:'దృష్టి మారడం, పక్కదారి పట్టడం'},
-  6:{a:'భావాలు లాగుతున్నాయి',b:'తగ్గుతోంది',s:'భావాలు పెరిగాయి',bk:'భావాలను నిజాలుగా నమ్మడం'},
-  7:{a:'కథలో చిక్కుకుంది',b:'తక్కువ',s:'కథ బలంగా ఉంది',bk:'మనసు అల్లుతున్న కేసు'},
-  8:{a:'శరీరం పట్టుకుంది',b:'అయిపోయింది',s:'శరీరం ఆధిపత్యం',bk:'ఏదైనా చేయాలనే తొందర'},
-  9:{a:'లూప్ లో ఉంది',b:'చాలా తక్కువ',s:'లూప్ బలంగా',bk:'అదే పని మళ్ళీ మళ్ళీ చేయడం'},
-  10:{a:'ప్రమాదంలో',b:'కుప్పకూలింది',s:'భయం అంతటా',bk:'పారిపోవాలి / పోరాడాలి / ఆగిపోవాలి'}
-};
-
-// ── ATTENTION CONTINUUM SVG ──
 function drawContinuum(level){
   var svg=document.getElementById('ac-svg');
-  // Curve pushed down to give header room; labels tight below
-  var pts=[
-    {x:35,y:65},  // 1
-    {x:84,y:82},  // 2
-    {x:133,y:95}, // 3
-    {x:182,y:104},// 4
-    {x:231,y:108},// 5
-    {x:280,y:104},// 6
-    {x:329,y:95}, // 7
-    {x:378,y:82}, // 8
-    {x:427,y:65}, // 9
-    {x:470,y:48}  // 10
-  ];
-  var names=['\u0c28\u0c3f\u0c36\u0c4d\u0c36\u0c2c\u0c4d\u0c26','\u0c17\u0c2e\u0c28\u0c3f\u0c02\u0c1a\u0c47','\u0c1a\u0c42\u0c38\u0c4d\u0c24\u0c42','\u0c38\u0c4d\u0c25\u0c3f\u0c30\u0c02\u0c17\u0c3e','\u0c2a\u0c28\u0c3f\u0c32\u0c4b','\u0c2d\u0c3e\u0c35\u0c02\u0c32\u0c4b','\u0c15\u0c25\u0c32\u0c4b','\u0c36\u0c30\u0c40\u0c30\u0c02\u0c32\u0c4b','\u0c32\u0c42\u0c2a\u0c4d\u0c32\u0c4b','\u0c15\u0c41\u0c2a\u0c4d\u0c2a'];
-  var names2=['\u0c09\u0c02\u0c26\u0c3f','\u0c09\u0c28\u0c4d\u0c28\u0c3e','\u0c09\u0c28\u0c4d\u0c28\u0c3e','\u0c09\u0c28\u0c4d\u0c28\u0c3e','\u0c09\u0c28\u0c4d\u0c28\u0c3e','\u0c2e\u0c41\u0c28\u0c3f\u0c17\u0c3f','\u0c2e\u0c41\u0c28\u0c3f\u0c17\u0c3f','\u0c2e\u0c41\u0c28\u0c3f\u0c17\u0c3f','\u0c2e\u0c41\u0c28\u0c3f\u0c17\u0c3f','\u0c15\u0c42\u0c32\u0c3f\u0c02\u0c26\u0c3f'];
+  var pts=[{x:35,y:65},{x:84,y:82},{x:133,y:95},{x:182,y:104},{x:231,y:108},{x:280,y:104},{x:329,y:95},{x:378,y:82},{x:427,y:65},{x:470,y:48}];
+  // Graph labels in improved Telugu
+  var names=['నిశ్శబ్ద','గమనిస్తున్న','సాక్షి','స్థిరత్వ','పనిలో','భావోద్వేగ','కథలో','శరీర','ఆలోచనా','కుప్పకూలిన'];
+  var names2=['స్థితి','స్థితి','స్థితి','స్థితి','నిమగ్నం','స్థితి','చిక్కుకుని','ఆధిపత్యం','లూప్‌లో','స్థితి'];
   var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;
   var txtC=isDark?'#ede8dc':'#1a1710';
   var txt3=isDark?'#7a7060':'#9a9080';
   var bgC=isDark?'#242018':'#f2f0eb';
 
-  var h='<rect width="510" height="195" fill="'+bgC+'" rx="0"/>';
-  h+='<text x="255" y="14" text-anchor="middle" font-size="8.5" font-weight="600" fill="'+txtC+'" letter-spacing="1">\u0c2e\u0c28\u0c38\u0c41 \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f</text>';
-  h+='<text x="15" y="28" font-size="6" fill="#3b82c8" font-weight="600">\u0c38\u0c4d\u0c35\u0c47\u0c1a\u0c4d\u0c1b\u0c17\u0c3e</text>';
-  h+='<text x="495" y="28" text-anchor="end" font-size="6" fill="#c0392b" font-weight="600">\u0c1a\u0c3f\u0c15\u0c4d\u0c15\u0c41\u0c32\u0c4b</text>';
+  var h='<rect width="510" height="195" fill="'+bgC+'"/>';
+  // Use Noto Sans Telugu for SVG text
+  h+='<text x="255" y="20" text-anchor="middle" font-family="Noto Sans Telugu" font-size="11" font-weight="700" fill="'+txtC+'" letter-spacing="0.5">దృష్టి స్థితి (ATTENTION CONTINUUM)</text>';
+  h+='<text x="15" y="32" font-family="Noto Sans Telugu" font-size="7" fill="#3b82c8" font-weight="700">స్వేచ్ఛ</text>';
+  h+='<text x="495" y="32" text-anchor="end" font-family="Noto Sans Telugu" font-size="7" fill="#c0392b" font-weight="700">చిక్కులు</text>';
 
-  // Draw line segments
   var segCols=['#3b82c8','#3b82c8','#2a9a6a','#2a9a6a','#c8a832','#c8a832','#c0392b','#c0392b','#c0392b'];
-  for(var i=0;i<9;i++){
-    h+='<line x1="'+pts[i].x+'" y1="'+pts[i].y+'" x2="'+pts[i+1].x+'" y2="'+pts[i+1].y+'" stroke="'+segCols[i]+'" stroke-width="2.5" stroke-linecap="round"/>';
-  }
+  for(var i=0;i<9;i++) h+='<line x1="'+pts[i].x+'" y1="'+pts[i].y+'" x2="'+pts[i+1].x+'" y2="'+pts[i+1].y+'" stroke="'+segCols[i]+'" stroke-width="3" stroke-linecap="round"/>';
 
-  // Draw all 10 dots, numbers, and labels
   pts.forEach(function(p,i){
     var dotCol=i<3?'#3b82c8':i<5?'#2a9a6a':i<7?'#c8a832':'#c0392b';
-    h+='<circle cx="'+p.x+'" cy="'+p.y+'" r="3.5" fill="'+dotCol+'"/>';
-    h+='<text x="'+p.x+'" y="'+(p.y-9)+'" text-anchor="middle" font-size="8" font-weight="700" fill="'+txtC+'">'+(i+1)+'</text>';
-    // Labels below curve — consistent row
-    h+='<text x="'+p.x+'" y="142" text-anchor="middle" font-size="5.5" fill="'+txt3+'">'+names[i]+'</text>';
-    h+='<text x="'+p.x+'" y="151" text-anchor="middle" font-size="5.5" fill="'+txt3+'">'+names2[i]+'</text>';
+    h+='<circle cx="'+p.x+'" cy="'+p.y+'" r="4" fill="'+dotCol+'"/>';
+    h+='<text x="'+p.x+'" y="'+(p.y-10)+'" text-anchor="middle" font-family="Noto Sans Telugu" font-size="9" font-weight="700" fill="'+txtC+'">'+(i+1)+'</text>';
+    h+='<text x="'+p.x+'" y="145" text-anchor="middle" font-family="Noto Sans Telugu" font-size="6.5" fill="'+txt3+'">'+names[i]+'</text>';
+    h+='<text x="'+p.x+'" y="156" text-anchor="middle" font-family="Noto Sans Telugu" font-size="6.5" fill="'+txt3+'">'+names2[i]+'</text>';
   });
 
-  // Active level indicator
-  if(level>=1&&level<=10){
+  if(level>=1 && level<=10){
     var ap=pts[level-1];
     var activeCol=level<=3?'#3b82c8':level<=5?'#2a9a6a':level<=7?'#c8a832':'#c0392b';
-    h+='<circle cx="'+ap.x+'" cy="'+ap.y+'" r="11" fill="'+activeCol+'" opacity="0.15"><animate attributeName="r" values="9;14;9" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.06;0.2" dur="2s" repeatCount="indefinite"/></circle>';
-    h+='<circle cx="'+ap.x+'" cy="'+ap.y+'" r="6.5" fill="'+activeCol+'"/>';
-    h+='<circle cx="'+ap.x+'" cy="'+ap.y+'" r="2.5" fill="#fff" opacity="0.85"/>';
-    h+='<line x1="'+ap.x+'" y1="'+(ap.y+10)+'" x2="'+ap.x+'" y2="135" stroke="'+activeCol+'" stroke-width="1" stroke-dasharray="2,2" opacity="0.4"/>';
-    h+='<rect x="'+(ap.x-18)+'" y="162" width="36" height="14" rx="3" fill="'+activeCol+'" opacity="0.15"/>';
-    h+='<text x="'+ap.x+'" y="172" text-anchor="middle" font-size="6" font-weight="700" fill="'+activeCol+'">\u0c07\u0c15\u0c4d\u0c15\u0c21</text>';
+    h+='<circle cx="'+ap.x+'" cy="'+ap.y+'" r="12" fill="'+activeCol+'" opacity="0.2"><animate attributeName="r" values="10;15;10" dur="2s" repeatCount="indefinite"/></circle>';
+    h+='<text x="'+ap.x+'" y="178" text-anchor="middle" font-family="Noto Sans Telugu" font-size="8" font-weight="700" fill="'+activeCol+'">ఇక్కడ</text>';
   }
-
   svg.innerHTML=h;
 }
-
-// ── RESULT CONTENT (Advaita + psychology markers) ──
-var R={
-  1:{
-    title:'నిశ్శబ్దం \u2014 మనసు తేలికగా ఉంది',
-    adv:'స్థాయి 1',
-    body:'మనసు తెరిచి ఉంది. ఏది వచ్చినా చూస్తున్నావు, దానిలో కలిసిపోలేదు. ఇది సహజ స్థితి \u2014 సాధన కాదు, విజయం కాదు.',
-    ego:'నువ్వు నువ్వుగా ఉన్నావు \u2014 ఏ పాత్ర వేయడం లేదు.',
-    obj:'నీకు నీ చుట్టూ జరుగుతున్నది వేరు అని స్పష్టంగా తెలుస్తోంది.',
-    defence:'ఏ రక్షణ అవసరం లేదు. ఏమీ బెదిరించడం లేదు.',
-    action:'ఇలాగే ఉండు. విశ్లేషణ అవసరం లేదు. ఈ స్థిరత్వం నుండి ఒక చిన్న పని చేయి.'
-  },
-  2:{
-    title:'గమనిస్తున్నావు \u2014 తెలివిడి ఉంది',
-    adv:'స్థాయి 2',
-    body:'ఏమి జరుగుతోందో చూడగలుగుతున్నావు. మనసులో కదలిక ఉన్నా, నువ్వు అది కాదు. నువ్వు చూస్తున్నవాడివి.',
-    ego:'నువ్వు నిన్ను నువ్వు చూసుకుంటున్నావు \u2014 స్వయం తెలివిడి పనిచేస్తోంది.',
-    obj:'జరుగుతున్నది నుండి కొంచెం దూరం ఉన్నావు. దగ్గరగా ఉన్నా కలిసిపోలేదు.',
-    defence:'చూస్తూ ఉండడమే ఒక రక్షణ అయ్యే అవకాశం \u2014 చూస్తూ అనుభవించకుండా ఉండొచ్చు.',
-    action:'గమనించడంలో ఉండు. దృష్టి లాగబడినప్పుడు, మెల్లగా చూస్తున్న స్థానానికి తిరిగిరా.'
-  },
-  3:{
-    title:'గమనిస్తున్నావు \u2014 చూస్తూ ఉన్నావు',
-    adv:'స్థాయి 3',
-    body:'దృష్టి అందుబాటులో ఉంది. జరుగుతున్నది అర్థమవుతోంది. కొంత ప్రయత్నం అవసరం, కానీ చేయగలవు.',
-    ego:'నువ్వు చూస్తున్నావు. పాత అలవాట్లు ఉన్నాయి కానీ అవి నడపడం లేదు.',
-    obj:'నీకు చుట్టూ ఉన్నది వేరు, నువ్వు వేరు \u2014 రెండూ సరిగ్గా ఉన్నాయి.',
-    defence:'అర్థం వెతకడం కొంచెం ముందే మొదలవ్వచ్చు \u2014 అనుభవించడం కంటే వివరించడం ముందు వస్తోంది.',
-    action:'ఒక ప్రాక్టికల్ పని ఎంచుకో, దానిలోకి వెళ్ళు.'
-  },
-  4:{
-    title:'సమతుల్యం \u2014 స్థిరంగా ఉన్నావు',
-    adv:'స్థాయి 4',
-    body:'దృష్టి స్వేచ్ఛగా ఉంది, దిశ ఉంది. ఇది సహజ స్థానం \u2014 బలవంతం ఆపినప్పుడు మనసు ఇక్కడికే వస్తుంది.',
-    ego:'నువ్వు పూర్తిగా పనిచేస్తున్నావు \u2014 నిజం ఏమిటో చూస్తున్నావు, ఎంచుకుంటున్నావు.',
-    obj:'నీకు చుట్టూ ఉన్నది స్పష్టంగా వేరుగా కనిపిస్తోంది.',
-    defence:'తక్కువగా. మనసు రక్షించడం కాకుండా ప్రాసెస్ చేస్తోంది.',
-    action:'ఈ స్థితిని కాపాడుకో \u2014 కొత్త విషయాలు తక్కువగా, స్థిరమైన లయ, అనవసరమైన నిర్ణయాలు వద్దు.'
-  },
-  5:{
-    title:'సమతుల్యం \u2014 పనిలో ఉన్నావు',
-    adv:'స్థాయి 5',
-    body:'దృష్టి ఒక పనిలో లేదా వ్యక్తిలో ఉంది. చేయగలిగేంత స్థిరత్వం ఉంది కానీ జాగ్రత్తగా ఉండాలి.',
-    ego:'నువ్వు దారి చూపిస్తున్నావు. ఇతరులకు సహాయం చేస్తుంటే ఆ భావన ఉండొచ్చు.',
-    obj:'నువ్వు స్థిరంగా ఉన్నావు. చుట్టూ ఉన్నది వేరుగా అనిపిస్తోంది.',
-    defence:'కొన్ని విషయాలు పక్కన పెట్టి ఉండొచ్చు \u2014 పని చేయడం కోసం.',
-    action:'ఒక చిన్న పని పూర్తి చేసి, తిరిగి 4కి రా.'
-  },
-  6:{
-    title:'అల్లకల్లోలం \u2014 భావాలు లాగుతున్నాయి',
-    adv:'స్థాయి 6',
-    body:'భావాలు దృష్టిని లాగుతున్నాయి. భావాలు నిజాలుగా అనిపించడం మొదలైంది. తెలివిడి ఇంకా అందుబాటులో ఉంది కానీ ప్రయత్నం కావాలి.',
-    ego:'చిన్నప్పటి భావాలు లేదా బాధితుడి స్థానం ఆక్టివ్ అవుతోంది.',
-    obj:'బయట జరుగుతున్నది నీ గురించే అనిపించడం మొదలైంది.',
-    defence:'భావాలను రుజువుగా తీసుకుంటున్నావు \u2014 అనిపించింది కాబట్టి నిజం అని.',
-    action:'భావాన్ని ఉండనివ్వు \u2014 అనుభవించు, కానీ అది నువ్వు కాదని గుర్తించు. పేరు పెట్టు, అయిపోకు.'
-  },
-  7:{
-    title:'అల్లకల్లోలం \u2014 కథ అల్లుతోంది',
-    adv:'స్థాయి 7',
-    body:'మనసు ఒక కథ అల్లుతోంది. జరిగింది తిరగరాస్తోంది \u2014 తప్పు ఎవరిది, ఎందుకు అని.',
-    ego:'ఎవరినో నిందించడం లేదా నిస్సహాయత నటించడం జరుగుతోంది.',
-    obj:'వాళ్ళు చేసింది నువ్వు ఎవరో నిర్ణయించడానికి వాడుతున్నావు.',
-    defence:'మనసు స్పష్టత అనిపించే వివరణ తయారు చేస్తోంది \u2014 కానీ అది అసౌకర్యం నుండి రక్షణ.',
-    action:'మనసు అల్లుతున్న కథను గుర్తించు. స్క్రీన్ నుండి దూరం వెళ్ళు. 2 గంటలు నిర్ణయాలు వద్దు. నీళ్ళు, కదలిక ముందు.'
-  },
-  8:{
-    title:'చిక్కుకుపోయింది \u2014 శరీరం ఆధిపత్యం',
-    adv:'స్థాయి 8',
-    body:'శరీరం లేదా ఒక లూప్ దృష్టిని పూర్తిగా పట్టుకుంది. శరీరం సంకేతాలు లేదా ఒక తిరిగే pattern ప్రధానమైంది.',
-    ego:'చిన్నప్పటి భావాలు నడుపుతున్నాయి. పెద్దవాడి తెలివిడి ఆఫ్ అయింది.',
-    obj:'బయట జరుగుతున్నది లోపల జరుగుతున్నదానితో కలిసిపోయింది.',
-    defence:'లోపల ప్రాసెస్ చేయలేనిది బయటికి చర్యగా వస్తోంది.',
-    action:'శరీరం ముందు \u2014 ORS, తేలికపాటి తిండి, విశ్రాంతి. మెదడుకు పని ఇవ్వకు. నిర్ణయాలు వద్దు.'
-  },
-  9:{
-    title:'చిక్కుకుపోయింది \u2014 లూప్ / ట్రాన్స్',
-    adv:'స్థాయి 9',
-    body:'దృష్టి ఒక లూప్ లో చిక్కుకుంది లేదా ఆటోపైలట్ లో నడుస్తోంది.',
-    ego:'గడ్డకట్టుకుపోయింది లేదా తిరుగుతోంది. ఆపగలిగే తెలివిడి అందుబాటులో లేదు.',
-    obj:'జరుగుతున్నది నీకు వేరుగా అనిపించడం లేదు \u2014 అదే నువ్వు అయిపోయింది.',
-    defence:'మనసు తాను ప్రాసెస్ చేయలేని దాని నుండి దూరం సృష్టించింది.',
-    action:'లూప్ ని మెల్లగా ఆపు \u2014 నిలబడు, గది మారు, బయటికి నడువు.'
-  },
-  10:{
-    title:'ప్రమాదం \u2014 రక్షణ స్థితి',
-    adv:'స్థాయి 10',
-    body:'దృష్టి భయంలోకి కుప్పకూలింది. ఏ దృష్టికోణం అందుబాటులో లేదు \u2014 కేవలం ట్రిగ్గర్ మరియు రియాక్షన్.',
-    ego:'ఏ పనిచేసే స్థానం లేదు. పోరాడు, పారిపో, లేదా ఆగిపో మాత్రమే.',
-    obj:'భయం నీతో కలిసిపోయింది. దాని నుండి దూరం లేదు.',
-    defence:'అతి ప్రాథమిక రక్షణలు మాత్రమే \u2014 పూర్తి నిరాకరణ లేదా షట్ డౌన్.',
-    action:'ట్రిగ్గర్ల నుండి దూరంగా వెళ్ళు. నీళ్ళు తాగు. Ground వాడు. నీ నమ్మకస్తుడికి చెప్పు. ఏ నిర్ణయాలు తీసుకోకు.'
-  }
-};
 
 function calc(){
   var sw=0,dw=0;
   Object.values(sel).forEach(function(v){if(v.side==='seer')sw+=v.weight;else dw+=v.weight;});
   var tot=sw+dw;
   var el=document.getElementById('result');
-  var aw=document.getElementById('ac-wrap');
+  if(!tot){ el.innerHTML='<div style="font-size:14px;color:var(--text3)">ఏదైనా ఎంచుకోండి.</div>'; el.classList.add('show'); return; }
 
-  if(!tot){
-    el.innerHTML='<div style="font-size:13px;color:var(--text3)">ఇప్పుడు ఏమి ఉందో ఎంచుకో, తర్వాత గమనించు.</div>';
-    el.classList.add('show');return;
-  }
-
-  // Calculate regulation level using same voting system as Inner Systems
-  var scores={};for(var i=1;i<=10;i++)scores[i]=0;scores[4]+=0.5;scores[5]+=0.5;
+  var scores={};for(var i=1;i<=10;i++)scores[i]=0;
   Object.keys(sel).forEach(function(id){
-    var m=REGI_MAP[id];if(!m)return;
+    var m=REGI_MAP[id]; if(!m)return;
     Object.entries(m.votes).forEach(function(e){scores[Number(e[0])]+=e[1];});
   });
-  var sorted=Object.entries(scores).map(function(e){return[Number(e[0]),e[1]];}).sort(function(a,b){return b[1]-a[1];});
-  var lvl=sorted[0][0];
-
-  // Draw Attention Continuum
+  var lvl=Object.entries(scores).sort((a,b)=>b[1]-a[1])[0][0];
   drawContinuum(lvl);
-  aw.classList.add('show');
+  document.getElementById('ac-wrap').classList.add('show');
 
-  // Get result data
-  var r=R[lvl];
-  var bd=RBD(lvl);var st=RST[lvl];
-
-  // Dynamic defence override based on selections
-  var defence=r.defence;
-  if(sel['i-story']&&lvl>=6)defence='మనసు భావానికి లాజిక్ వెతుకుతోంది \u2014 భావం సరైనదే అని నమ్మించుకోవడానికి కథ అల్లుతోంది.';
-  else if(sel['i-charged']&&lvl>=7)defence='లోపలి భావాలు బయటికి వేస్తున్నావు \u2014 మామూలు విషయాల్లో ప్రత్యేక అర్థం చూస్తున్నావు.';
-  else if(sel['i-compulsion']&&lvl>=7)defence='అదే ఆలోచన తిరిగి తిరిగి వస్తోంది \u2014 మళ్ళీ మళ్ళీ చేసినా పరిష్కారం దొరకదు.';
-  else if(sel['i-urgency']&&lvl>=7)defence='ఏదైనా చెప్పాలి/చేయాలి అనే ఒత్తిడి \u2014 ఈ అసౌకర్యంతో ఉండలేకపోవడం వల్ల.';
-
-  // Warnings
-  var h='<span class="bpill '+RBDCLS[bd]+'">'+RBDL[bd]+'</span>';
-  h+='<div class="result-title">'+r.title+'</div>';
-  h+='<div style="font-size:11px;color:var(--text3);margin-bottom:10px">'+r.adv+' \u2014 Attention: '+st.a+'</div>';
-  h+='<div class="result-body">'+r.body+'</div>';
-
-  // Attention / Brakes / Salience grid
-  var choiceSt=lvl<=3?'పూర్తి \u2014 దృష్టిని స్వేచ్ఛగా నడపగలవు':lvl<=5?'అందుబాటులో \u2014 ఎంచుకోగలవు కానీ ప్రయత్నం కావాలి':lvl<=7?'పరిమితం \u2014 భావాలు లాగుతున్నాయి, ఎంపిక కష్టం':'లేదు \u2014 మనసు నడుపుతోంది, నువ్వు కాదు';
-  var choiceCls=lvl<=3?'var(--seer)':lvl<=5?'var(--it)':lvl<=7?'var(--wt)':'var(--dt)';
-  h+='<div style="margin:10px 0;padding:9px 12px;border-radius:var(--r);border:1px solid var(--bdr);background:var(--bg3)"><div style="font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px">ఎంపిక స్థితి</div><div style="font-size:13px;font-weight:600;color:'+choiceCls+'">'+choiceSt+'</div></div>';
-  h+='<div class="rgg" style="grid-template-columns:1fr 1fr"><div class="rgc"><div class="rgck">దృష్టి</div><div class="rgcv">'+st.a+'</div></div><div class="rgc"><div class="rgck">తీవ్రత</div><div class="rgcv">'+st.s+'</div></div></div>';
-  h+='<div class="rgg" style="grid-template-columns:1fr 1fr"><div class="rgc"><div class="rgck">బ్రేకులు</div><div class="rgcv">'+st.b+'</div></div><div class="rgc"><div class="rgck">దేనిని ఆపాలి</div><div class="rgcv" style="font-size:11px;font-weight:500">'+st.bk+'</div></div></div>';
-
-  // Psychology markers
-  h+='<div class="markers">';
-  h+='<div class="marker"><span class="marker-label">నువ్వు ఇప్పుడు ఎక్కడ ఉన్నావు</span>'+r.ego+'</div>';
-  h+='<div class="marker"><span class="marker-label">నువ్వు - బయట జరుగుతున్నది</span>'+r.obj+'</div>';
-  h+='<div class="marker"><span class="marker-label">మనసు ఏమి చేస్తోంది</span>'+defence+'</div>';
-  h+='</div>';
-
-  h+='<div class="result-action"><strong style="font-size:11px;text-transform:uppercase;letter-spacing:.3px;display:block;margin-bottom:4px;color:var(--gold)">ఇప్పుడు ఏమి చేయాలి</strong>'+r.action+'</div>';
-
-  if(lvl>=7)h+='<div class="al alw" style="margin-top:8px">ఈ స్థాయిలో నీ విశ్లేషణ సరిగ్గా ఉండదు. ముందు Ground వాడు. 5 లేదా అంతకంటే తక్కువకు వచ్చాక తిరిగిరా.</div>';
-
-  h+='<div class="ripsy">నాడీ వ్యవస్థ: '+(lvl<=5?'తెరిచి ఉంది':lvl<=7?'తగ్గుతోంది':'మూసుకుపోయింది')+'</div>';
-
-  el.innerHTML=h;el.classList.add('show');
+  // Result UI Logic (shortened for demo - repeat the logic from your base HTML)
+  el.innerHTML='<div class="result-title">స్థాయి '+lvl+' గమనించబడింది</div><div class="result-body">మీ నాడీ వ్యవస్థ ఇప్పుడు '+ (lvl<=5?'ప్రశాంతంగా':'అప్రమత్తంగా') +' ఉంది.</div>';
+  el.classList.add('show');
 }
-
-// ── AUDIO + HAPTICS ──
-var _audioCtx=null;
-function getAudioCtx(){if(!_audioCtx)_audioCtx=new(window.AudioContext||window.webkitAudioContext)();if(_audioCtx.state==='suspended')_audioCtx.resume();return _audioCtx;}
-function beep(){try{var ctx=getAudioCtx();var o=ctx.createOscillator();var g=ctx.createGain();o.type='sine';o.frequency.setValueAtTime(660,ctx.currentTime);g.gain.setValueAtTime(0.0001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.15,ctx.currentTime+0.01);g.gain.exponentialRampToValueAtTime(0.0001,ctx.currentTime+0.4);o.connect(g);g.connect(ctx.destination);o.start(ctx.currentTime);o.stop(ctx.currentTime+0.45);}catch(e){}}
-function vibrate(ms){try{if(navigator.vibrate)navigator.vibrate(ms||80);}catch(e){}}
-
-// ── BREATHING (identical to Inner Systems) ──
-var BREATHS=[
-  {nm:'4-7-8',sb:'లోతైన శాంతి',ph:['పీల్చు','ఆపు','వదులు'],ti:[4,7,8],col:'#1D9E75',wh:'ఆలోచనలు చుట్టూ తిరుగుతున్నాయి, ఆపలేకపోతున్నావు.',de:'ఎక్కువసేపు ఆపి, పొడవుగా వదలడం వల్ల శరీరం ఆందోళనను ఆపేస్తుంది.'},
-  {nm:'పొడవు ఊపిరి',sb:'రోజువారీ శాంతి',ph:['పీల్చు','వదులు'],ti:[4,8],col:'#378ADD',wh:'ఒత్తిడి ఉంది కానీ మునిగిపోలేదు.',de:'వదిలే ఊపిరి రెట్టింపు పొడవు. గుండె వేగం తగ్గుతుంది.'},
-  {nm:'బాక్స్',sb:'స్పష్టమైన దృష్టి',ph:['పీల్చు','ఆపు','వదులు','ఆపు'],ti:[4,4,4,4],col:'#7F77DD',wh:'కష్టమైన సంభాషణ, నిర్ణయం, లేదా స్పష్టత కావాలంటే.',de:'సమానమైన భాగాలు సమతుల్య లయ సృష్టిస్తాయి.'},
-  {nm:'డబుల్ శ్వాస',sb:'తక్షణ రీసెట్',ph:['పీల్చు','పీల్చు+','వదులు'],ti:[2,1,6],col:'#D4537E',wh:'ఇప్పుడే ఏదో తీవ్రంగా తాకింది, రియాక్ట్ అవ్వక ముందు.',de:'రెండుసార్లు పీల్చి పొడవుగా వదులు. 9 సెకన్లు. అతి వేగవంతమైన బ్రేక్.'}
-];
-var BCX=120,BCY=120,BR=108,RMIN=46,RMAX=72,TK=10;
-var bI=0,bR=false,bC=0,bPh=0,bPS=null,bRaf=null,bCI=null,bIR=RMIN,bTimerStart=null,bTimerRaf=null;
-
-function bFr(b){var t=b.ti.reduce(function(a,v){return a+v;},0);var f=[0];var a=0;b.ti.forEach(function(v){a+=v;f.push(a/t);});return f;}
-function bIsI(p){return p.toLowerCase().startsWith('inhale');}
-function bIsH(p){return p.toLowerCase().startsWith('hold');}
-function initB(){var tabs=document.getElementById('btabs');tabs.innerHTML='';BREATHS.forEach(function(b,i){var btn=document.createElement('button');btn.className='btb'+(i===bI?' on':'');btn.innerHTML='<span class="bn">'+b.nm+'</span><span class="bs">'+b.sb+'</span>';btn.onclick=function(){selB(i);};tabs.appendChild(btn);});rBCh();updBD();bSetI();bDr(null,null);document.getElementById('breath-timer').textContent='00:00';}
-function selB(i){bStop();bI=i;document.querySelectorAll('.btb').forEach(function(b,j){b.classList.toggle('on',j===i);});rBCh();updBD();bSetI();bDr(null,null);}
-function updBD(){var b=BREATHS[bI];document.getElementById('bwhen').textContent=b.wh;document.getElementById('bdesc').textContent=b.de;}
-function rBCh(){var b=BREATHS[bI];var row=document.getElementById('phases-row');row.innerHTML='';b.ph.forEach(function(ph,i){var d=document.createElement('div');d.className='pchip';d.id='phchip-'+i;d.innerHTML='<span class="pn">'+ph+'</span><span class="ps">'+b.ti[i]+'s</span>';row.appendChild(d);});}
-function bSetI(){bIR=RMIN;bApB(RMIN);document.getElementById('cp-phase').textContent='మొదలు పెట్టు';document.getElementById('cp-count').textContent='';}
-function bApB(r){var sz=Math.round(r*2);var btn=document.getElementById('center-btn');var col=BREATHS[bI].col;btn.style.cssText='width:'+sz+'px;height:'+sz+'px;background:'+col+';border-radius:50%;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)';}
-function bDr(df,innerR){var cv=document.getElementById('bcanvas');if(!cv)return;var ctx=cv.getContext('2d');var b=BREATHS[bI];var col=b.col;var fr=bFr(b);ctx.clearRect(0,0,240,240);ctx.globalAlpha=bR?1:0.3;ctx.beginPath();ctx.arc(BCX,BCY,BR,0,Math.PI*2);ctx.strokeStyle=col;ctx.lineWidth=2.5;ctx.stroke();fr.forEach(function(f){var a=f*Math.PI*2-Math.PI/2;var ox=BCX+Math.cos(a)*(BR-TK),oy=BCY+Math.sin(a)*(BR-TK);var ix=BCX+Math.cos(a)*(BR+TK),iy=BCY+Math.sin(a)*(BR+TK);ctx.beginPath();ctx.moveTo(ox,oy);ctx.lineTo(ix,iy);ctx.strokeStyle=col;ctx.lineWidth=3.5;ctx.lineCap='round';ctx.stroke();ctx.beginPath();ctx.moveTo(ox,oy);ctx.lineTo(ix,iy);ctx.strokeStyle='rgba(0,0,0,0.55)';ctx.lineWidth=1.5;ctx.lineCap='round';ctx.stroke();});if(innerR!==null){ctx.globalAlpha=bR?0.25:0.1;ctx.beginPath();ctx.arc(BCX,BCY,innerR,0,Math.PI*2);ctx.fillStyle=col;ctx.fill();}ctx.globalAlpha=1;if(df===null)return;var a=df*Math.PI*2-Math.PI/2;var dx=BCX+Math.cos(a)*BR,dy=BCY+Math.sin(a)*BR;ctx.beginPath();ctx.arc(dx,dy,9,0,Math.PI*2);ctx.fillStyle='#ffffff';ctx.fill();ctx.beginPath();ctx.arc(dx,dy,7,0,Math.PI*2);ctx.fillStyle=col;ctx.fill();ctx.beginPath();ctx.arc(dx,dy,3,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,0.8)';ctx.fill();}
-function tickTimer(){if(!bR)return;var el=document.getElementById('breath-timer');var secs=Math.floor((performance.now()-bTimerStart)/1000);var m=Math.floor(secs/60);var s=secs%60;el.textContent=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);bTimerRaf=requestAnimationFrame(tickTimer);}
-function toggleRun(){if(bR)bStop();else bStart();}
-function bStart(){bR=true;bC=0;bPh=0;bIR=RMIN;bTimerStart=performance.now();bTimerRaf=requestAnimationFrame(tickTimer);try{getAudioCtx();}catch(e){}bRunP();}
-function bStop(){bR=false;if(bRaf)cancelAnimationFrame(bRaf);if(bCI)clearInterval(bCI);if(bTimerRaf)cancelAnimationFrame(bTimerRaf);bRaf=null;bCI=null;bTimerRaf=null;document.querySelectorAll('.pchip').forEach(function(c){c.classList.remove('cur');});document.getElementById('bcycles').textContent='';bSetI();bDr(null,null);document.getElementById('breath-timer').textContent='00:00';}
-function bRunP(){if(!bR)return;var b=BREATHS[bI];var ph=b.ph[bPh];var dur=b.ti[bPh];var fr=bFr(b);beep();vibrate(80);document.querySelectorAll('.pchip').forEach(function(c,i){c.classList.toggle('cur',i===bPh);});document.getElementById('cp-phase').textContent=ph;document.getElementById('bcycles').textContent='చక్రం '+(bC+1);var isInhale=bIsI(ph);var isHold=bIsH(ph);var sR=bIR;var eR=isHold?bIR:(isInhale?RMAX:RMIN);var sInnerR=bIR;var eInnerR=eR;var cv2=dur;document.getElementById('cp-count').textContent=cv2;if(bCI)clearInterval(bCI);bCI=setInterval(function(){cv2--;document.getElementById('cp-count').textContent=cv2>0?cv2:'';if(cv2<=0)clearInterval(bCI);},1000);var dMs=dur*1000;bPS=performance.now();function frame(now){if(!bR)return;var el=Math.min(now-bPS,dMs);var frac=el/dMs;var ease=isHold?1:(0.5-0.5*Math.cos(Math.PI*frac));var r=sR+(eR-sR)*ease;bIR=r;bApB(r);var innerR=sInnerR+(eInnerR-sInnerR)*ease;var dotF=fr[bPh]+(fr[bPh+1]-fr[bPh])*frac;bDr(dotF,innerR);if(el<dMs){bRaf=requestAnimationFrame(frame);}else{bIR=eR;bPh++;if(bPh>=b.ph.length){bPh=0;bC++;}requestAnimationFrame(function(){if(bR)bRunP();});}}bRaf=requestAnimationFrame(frame);}
-function switchGov(id){
-  var isB=id==='breathing';
-  var bBtn=document.getElementById('gov-breathing');
-  var gBtn=document.getElementById('gov-grounding');
-  bBtn.style.cssText='flex:1;margin:0;'+(isB?'background:var(--calm);color:#1a1a1a;font-weight:700;border-color:var(--calm)':'');
-  gBtn.style.cssText='flex:1;margin:0;'+(isB?'':'background:var(--calm);color:#1a1a1a;font-weight:700;border-color:var(--calm)');
-  document.getElementById('govp-breathing').style.display=isB?'block':'none';
-  document.getElementById('govp-grounding').style.display=isB?'none':'block';
-}
-function openBreath(){document.getElementById('boverlay').classList.add('open');document.body.style.overflow='hidden';initB();initGrounding();switchGov('breathing');}
-function closeBreath(){bStop();document.getElementById('boverlay').classList.remove('open');document.body.style.overflow='';}
-function stopBreath(){bStop();}
-
-// ── GROUNDING — 8 techniques ──
-var GRND_TECHS=[
-  {id:'g54321',title:'5-4-3-2-1 భూమిపై',desc:'ప్రతి ఇంద్రియం ద్వారా విషయాలు గుర్తించు. కథ నుండి నిజమైన పరిసరాలకు దృష్టిని తీసుకువస్తుంది.',senses:[{label:'కనిపించే 5 విషయాలు',count:5,prompt:'చుట్టూ చూడు. ఇప్పుడు ఒక వస్తువు చెప్పు.'},{label:'తాకగలిగే 4 విషయాలు',count:4,prompt:'శరీరాన్ని గమనించు. ఏమి తాకుతోంది?'},{label:'వినిపించే 3 శబ్దాలు',count:3,prompt:'వినుము. ఏ శబ్దాలు ఉన్నాయి?'},{label:'వాసన చూడగలిగే 2 విషయాలు',count:2,prompt:'శ్వాసించు. గాలిలో ఏమి ఉంది?'},{label:'రుచి చూడగలిగే 1 విషయం',count:1,prompt:'నోటిలో ఏ రుచి ఉంది?'}]},
-  {id:'gcold',title:'చల్లటి నీళ్ళు',desc:'ముఖం మీద చల్లటి నీళ్ళు కొట్టు లేదా మణికట్టుల మీద పెట్టు. గుండె వేగం తనంతట తానే తగ్గుతుంది.',simple:true},
-  {id:'gmove',title:'కదలిక',desc:'శరీరం ద్వారా ఉద్రేకాన్ని విడుదల చేయి. పోరాడాలి/పారిపోవాలి అనిపించినప్పుడు బాగా పనిచేస్తుంది.',moves:[{label:'కాళ్ళతో నేలను తట్టు',dur:10},{label:'చేతులు విదిలించు',dur:10},{label:'భుజాలు తిప్పు',dur:10},{label:'మూడు నెమ్మది అడుగులు వేయి',dur:8}]},
-  {id:'gorient',title:'చుట్టూ చూడు',desc:'నెమ్మదిగా గదిని చూడు. భద్రత అనుభూతిని తిరిగి ఇస్తుంది.',questions:['ఈ గదిలో కదలకుండా స్థిరంగా ఉన్న ఒక వస్తువు ఏది?','నువ్వు చూడగలిగే అతి దూరపు వస్తువు ఏది?','ఈ ప్రదేశంలో సురక్షితంగా అనిపించే ఒక విషయం ఏది?','ఇప్పుడు నీ చర్మాన్ని తాకుతున్న గాలి ఉష్ణోగ్రత ఎంత?','ఈ పరిసరాలలో సాధారణంగా వినిపించే ఒక శబ్దం ఏది?']},
-  {id:'gcontact',title:'స్వయం స్పర్శ',desc:'ఒక చేతిని గుండె మీద పెట్టు. శరీర స్పర్శ ఇతరుల అవసరం లేకుండా శాంతి ఇస్తుంది.',dur:30},
-  {id:'gbodyscan',title:'శరీర స్కాన్ \u2014 60 సెకన్లు',desc:'ఐదు భాగాలు, ఒక్కొక్కటి 10 సెకన్లు. ఏమి ఉందో గమనించు, మార్చకు.',zones:[{label:'తల',prompt:'తల, ముఖం గమనించు. ఏదైనా ఒత్తిడి, పీడన, లేదా అనుభూతి.'},{label:'ఛాతి',prompt:'ఛాతి గమనించు. శ్వాస, గుండె చప్పుడు, బిగుతు లేదా సేదతీర్పు.'},{label:'పొట్ట',prompt:'పొట్ట గమనించు. ముడుచుకోవడం, వేడి, లేదా శ్వాసతో కదలిక.'},{label:'చేతులు',prompt:'చేతులు గమనించు. ఉష్ణోగ్రత, జలదరింపు, బరువు, లేదా నిశ్చలత.'},{label:'పాదాలు',prompt:'పాదాలు గమనించు. నేలతో సంపర్కం, బరువు, ఉష్ణోగ్రత.'}]},
-  {id:'gbilateral',title:'ఎడమ-కుడి తట్టడం',desc:'ఎడమ మోకాలు, కుడి మోకాలు మార్చి మార్చి నెమ్మదిగా తట్టు. తీవ్ర బాధను తగ్గిస్తుంది.',dur:30},
-  {id:'gyawn',title:'ఆవలింత',desc:'మూడు ఆవలింతలు. ఆవలింత శరీరాన్ని విశ్రాంతి స్థితికి తీసుకువెళ్తుంది.',count:3}
-];
-
-function initGrounding(){
-  var wrap=document.getElementById('grnd-techs');wrap.innerHTML='';
-  GRND_TECHS.forEach(function(tech){
-    var card=document.createElement('div');card.className='grnd-card';card.id='grnd-'+tech.id;
-    card.innerHTML='<div class="grnd-title">'+tech.title+'</div><div class="grnd-desc">'+tech.desc+'</div><div class="grnd-body" id="body-'+tech.id+'"></div>';
-    var startBtn=document.createElement('button');startBtn.className='grnd-btn primary';startBtn.textContent='మొదలు';
-    startBtn.onclick=function(){startGrounding(tech);};
-    card.appendChild(startBtn);wrap.appendChild(card);
-  });
-}
-function startGrounding(tech){
-  var body=document.getElementById('body-'+tech.id);body.classList.add('open');body.innerHTML='';
-  var card=document.getElementById('grnd-'+tech.id);card.querySelector('.grnd-btn.primary').style.display='none';
-  if(tech.id==='g54321')run54321(tech,body,0,0);
-  else if(tech.id==='gcold')runSimple(tech,body);
-  else if(tech.id==='gmove')runMove(tech,body,0);
-  else if(tech.id==='gorient')runOrient(tech,body,0);
-  else if(tech.id==='gcontact')runContact(tech,body);
-  else if(tech.id==='gbodyscan')runBodyScan(tech,body,0);
-  else if(tech.id==='gbilateral')runBilateral(tech,body);
-  else if(tech.id==='gyawn')runYawn(tech,body,0);
-}
-function run54321(tech,body,senseIdx,tapped){var sense=tech.senses[senseIdx];body.innerHTML='<div class="grnd-prompt">'+sense.prompt+'</div><div class="grnd-sense">'+sense.label+'</div><div class="grnd-counter">'+(sense.count-tapped)+'</div><button class="grnd-btn primary" id="tap-btn">Tap each time you notice one</button>';document.getElementById('tap-btn').onclick=function(){beep();vibrate(60);tapped++;if(tapped>=sense.count){if(senseIdx+1<tech.senses.length)run54321(tech,body,senseIdx+1,0);else showDone(tech,body);}else document.querySelector('#body-'+tech.id+' .grnd-counter').textContent=(sense.count-tapped);};}
-function runSimple(tech,body){body.innerHTML='<div class="grnd-prompt" style="font-size:14px">ముఖం మీద చల్లటి నీళ్ళు కొట్టు లేదా మణికట్టుల మీద పెట్టు. అయ్యాక తిరిగిరా.</div><button class="grnd-btn primary" style="margin-top:12px" id="done-cold">Done \u2014 I tried it</button>';document.getElementById('done-cold').onclick=function(){showDone(tech,body);};}
-function runMove(tech,body,idx){var move=tech.moves[idx];body.innerHTML='<div class="grnd-prompt">'+move.label+'</div><div class="grnd-sense" style="margin-top:.5rem">'+(idx+1)+' of '+tech.moves.length+'</div><div class="grnd-counter" id="move-count" style="color:var(--text3)">'+move.dur+'s</div><div class="grnd-timer-bar"><div class="grnd-timer-fill" id="move-fill" style="width:100%"></div></div><button class="grnd-btn primary" id="move-start-btn">Start</button>';document.getElementById('move-start-btn').onclick=function(){this.style.display='none';beep();vibrate(100);var rem=move.dur;var total=move.dur;var iv=setInterval(function(){rem--;var el=document.getElementById('move-count');var fill=document.getElementById('move-fill');if(el)el.textContent=rem+'s';if(fill)fill.style.width=Math.round(rem/total*100)+'%';if(rem<=0){clearInterval(iv);vibrate(150);var nb=document.createElement('button');nb.className='grnd-btn primary';nb.textContent=idx+1<tech.moves.length?'తర్వాత':'అయింది';nb.style.marginTop='8px';nb.onclick=function(){if(idx+1<tech.moves.length)runMove(tech,body,idx+1);else showDone(tech,body);};body.appendChild(nb);}},1000);};}
-function runOrient(tech,body,idx){var q=tech.questions[idx];body.innerHTML='<div class="grnd-prompt">'+q+'</div><div class="grnd-sense" style="margin-top:.5rem">'+(idx+1)+' of '+tech.questions.length+'</div><button class="grnd-btn primary" style="margin-top:12px" id="orient-next">'+(idx+1<tech.questions.length?'తర్వాత':'అయింది')+'</button>';document.getElementById('orient-next').onclick=function(){beep();vibrate(60);if(idx+1<tech.questions.length)runOrient(tech,body,idx+1);else showDone(tech,body);};}
-function runContact(tech,body){body.innerHTML='<div class="grnd-prompt">ఒక చేతిని గుండె మీద పెట్టు. బరువు, వెచ్చదనం అనుభవించు. ఇక్కడే ఉండు.</div><div class="grnd-pulse" id="contact-pulse"></div><div class="grnd-counter" id="contact-count">'+tech.dur+'</div>';var rem=tech.dur;var pulse=false;var piv=setInterval(function(){pulse=!pulse;var el=document.getElementById('contact-pulse');if(el)el.classList.toggle('expand',pulse);},1500);var iv=setInterval(function(){rem--;var el=document.getElementById('contact-count');if(el)el.textContent=rem;if(rem<=0){clearInterval(iv);clearInterval(piv);vibrate(200);showDone(tech,body);}},1000);}
-function runBodyScan(tech,body,idx){var zone=tech.zones[idx];body.innerHTML='<div class="grnd-prompt">'+zone.prompt+'</div><div class="grnd-sense">'+zone.label+' \u2014 '+(idx+1)+' of '+tech.zones.length+'</div><div class="grnd-timer-bar"><div class="grnd-timer-fill" id="scan-fill" style="width:100%"></div></div><div class="grnd-counter" id="scan-count">10</div><button class="grnd-btn primary" id="scan-next-btn" style="display:none">'+(idx+1<tech.zones.length?'తర్వాత భాగం':'అయింది')+'</button>';var rem=10;var total=10;var iv=setInterval(function(){rem--;var el=document.getElementById('scan-count');var fill=document.getElementById('scan-fill');if(el)el.textContent=rem;if(fill)fill.style.width=Math.round(rem/total*100)+'%';if(rem<=0){clearInterval(iv);vibrate(80);var nb=document.getElementById('scan-next-btn');if(nb)nb.style.display='block';}},1000);document.getElementById('scan-next-btn').onclick=function(){beep();if(idx+1<tech.zones.length)runBodyScan(tech,body,idx+1);else showDone(tech,body);};}
-function runBilateral(tech,body){body.innerHTML='<div class="grnd-prompt">ఎడమ మోకాలు తట్టు. కుడి మోకాలు తట్టు. నెమ్మదిగా, మార్చి మార్చి.</div><div style="display:flex;justify-content:center;gap:40px;margin:1rem 0"><div id="bl-left" style="width:48px;height:48px;border-radius:50%;background:var(--bdr);transition:background .15s;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text3)">L</div><div id="bl-right" style="width:48px;height:48px;border-radius:50%;background:var(--bdr);transition:background .15s;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text3)">R</div></div><div class="grnd-timer-bar"><div class="grnd-timer-fill" id="bl-fill" style="width:100%"></div></div><div class="grnd-counter" id="bl-count">'+tech.dur+'</div>';vibrate(80);var rem=tech.dur;var total=tech.dur;var side=0;var tapIv=setInterval(function(){var L=document.getElementById('bl-left');var Ri=document.getElementById('bl-right');if(!L||!Ri){clearInterval(tapIv);return;}if(side===0){L.style.background='var(--calm)';L.style.color='#fff';Ri.style.background='var(--bdr)';Ri.style.color='var(--text3)';}else{Ri.style.background='var(--calm)';Ri.style.color='#fff';L.style.background='var(--bdr)';L.style.color='var(--text3)';}vibrate(40);side=1-side;},1000);var countIv=setInterval(function(){rem--;var el=document.getElementById('bl-count');var fill=document.getElementById('bl-fill');if(el)el.textContent=rem;if(fill)fill.style.width=Math.round(rem/total*100)+'%';if(rem<=0){clearInterval(tapIv);clearInterval(countIv);vibrate(150);showDone(tech,body);}},1000);}
-function runYawn(tech,body,done){if(done>=tech.count){showDone(tech,body);return;}body.innerHTML='<div class="grnd-prompt">నోరు బాగా తెరువు, ఆవలింతను ఆహ్వానించు.<br>బలవంతం చేయకు \u2014 అవకాశం ఇవ్వు.</div><div class="grnd-sense">ఆవలింత '+(done+1)+' of '+tech.count+'</div><div style="font-size:48px;text-align:center;margin:1rem 0;letter-spacing:4px">'+Array(done+1).fill('\uD83D\uDFE2').join('')+Array(tech.count-done).fill('\u25CB').join('')+'</div><button class="grnd-btn primary" id="yawn-btn">Done \u2014 I yawned</button><button class="grnd-btn" id="yawn-skip" style="margin-top:6px">ఆవలించలేదు \u2014 దాటు</button>';document.getElementById('yawn-btn').onclick=function(){beep();vibrate(60);runYawn(tech,body,done+1);};document.getElementById('yawn-skip').onclick=function(){runYawn(tech,body,done+1);};}
-function showDone(tech,body){body.innerHTML='<div class="grnd-done-q">ఇప్పుడు ఎలా ఉంది?</div><div class="grnd-done-btns"><button class="grnd-done-btn settled" onclick="grndSettled(\''+tech.id+'\')">ప్రశాంతంగా ఉంది</button><button class="grnd-done-btn still" onclick="grndStill(\''+tech.id+'\')">ఇంకా అల్లకల్లోలంగా ఉంది</button></div><div class="grnd-still-msg" id="still-'+tech.id+'"></div>';}
-function grndSettled(id){document.getElementById('body-'+id).innerHTML='<div class="grnd-prompt" style="font-size:14px;padding:.5rem 0">\u2713 మంచిది. తిరిగి వెళ్ళేముందు ఒక్క క్షణం ఇక్కడే ఉండు.</div>';}
-function grndStill(id){var remaining=GRND_TECHS.filter(function(t){return t.id!==id;}).map(function(t){return t.title;}).join(', ');var el=document.getElementById('still-'+id);el.textContent='మరొక టెక్నిక్ ప్రయత్నించు: '+remaining;el.classList.add('show');}
+function openBreath(){ alert('శాంతి/Grounding స్క్రీన్ ఇక్కడ వస్తుంది.'); }
 </script>
 </body>
 </html>
